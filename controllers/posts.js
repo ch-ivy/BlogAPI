@@ -1,27 +1,35 @@
 const Posts = require("../models/posts");
 
 const create = async (post) => {
-   return Posts.create({
+   const data = {
       title: post.title,
       author: post.author,
       timestamp: post.timestamp,
-      publishedDate: post.publishedDate,
       isPublished: post.isPublished,
-   });
+   };
+   if (post.publishedDate) data.publishedDate = post.publishedDate;
+   return Posts.create(data);
 };
 
 const find = async (info) => {
-   if (info.author && info.isPublished) {
-      if (typeof info.isPublished !== "boolean") {
+   if (info.author || info.isPublished) {
+      if (typeof info.isPublished !== "boolean" && !info.author) {
+         return Posts.findAll();
+      }
+      if (typeof info.isPublished !== "boolean" && info.author) {
          return Posts.findAll({
-            attributes: ["author"],
-            order: ["id"],
-         });
-      } else {
+            where: {
+               author: info.author
+            }
+         })
+      }
+      else if (typeof info.isPublished === "boolean" && info.author) {
          return Posts.findAll({
-            attributes: ["isPublished", "author"],
-            order: ["id"],
-         });
+            where: {
+               author: info.author,
+               isPublished: info.isPublished
+            }
+         })
       }
    } else
       return Posts.findAll({

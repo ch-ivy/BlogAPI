@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="5.0280" tests="13" failures="0">
+  <testsuite name="Root Suite" timestamp="2021-01-15T23:05:52" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="blog_posts_api_medium" timestamp="2021-01-15T23:05:52" tests="13" file="C:\Users\DC\Documents\codingClass\javascript\node\back\blog\test\index.spec.js" time="5.0280" failures="0">
+    <testcase name="blog_posts_api_medium should create a published post" time="0.2030" classname="should create a published post">
+    </testcase>
+    <testcase name="blog_posts_api_medium should create an unpublished post" time="0.1570" classname="should create an unpublished post">
+    </testcase>
+    <testcase name="blog_posts_api_medium should fetch all the posts" time="0.7690" classname="should fetch all the posts">
+    </testcase>
+    <testcase name="blog_posts_api_medium should fetch all the posts if the isPublished filter value does not exist" time="1.0990" classname="should fetch all the posts if the isPublished filter value does not exist">
+    </testcase>
+    <testcase name="blog_posts_api_medium should fetch all posts for an author" time="0.6970" classname="should fetch all posts for an author">
+    </testcase>
+    <testcase name="blog_posts_api_medium should fetch no posts if author filter value does not exist" time="0.3190" classname="should fetch no posts if author filter value does not exist">
+    </testcase>
+    <testcase name="blog_posts_api_medium should fetch all published posts for an author" time="0.2850" classname="should fetch all published posts for an author">
+    </testcase>
+    <testcase name="blog_posts_api_medium should fetch all unpublished posts for an author" time="0.4670" classname="should fetch all unpublished posts for an author">
+    </testcase>
+    <testcase name="blog_posts_api_medium should fetch a single post" time="0.2430" classname="should fetch a single post">
+    </testcase>
+    <testcase name="blog_posts_api_medium should get 404 if the post ID does not exist" time="0.2720" classname="should get 404 if the post ID does not exist">
+    </testcase>
+    <testcase name="blog_posts_api_medium should get 405 for a put request to /posts/:id" time="0.1210" classname="should get 405 for a put request to /posts/:id">
+    </testcase>
+    <testcase name="blog_posts_api_medium should get 405 for a patch request to /posts/:id" time="0.2490" classname="should get 405 for a patch request to /posts/:id">
+    </testcase>
+    <testcase name="blog_posts_api_medium should get 405 for a delete request to /posts/:id" time="0.1470" classname="should get 405 for a delete request to /posts/:id">
+    </testcase>
+  </testsuite>
+</testsuites>

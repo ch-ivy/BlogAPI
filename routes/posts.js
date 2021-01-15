@@ -7,10 +7,11 @@ router.post("/", (req, res) => {
       title: req.body.title,
       author: req.body.author,
       timestamp: req.body.timestamp,
-      publishedDate: req.body.isPublished ? req.body.timestamp : null,
       isPublished: req.body.isPublished,
    };
-
+   if (req.body.isPublished) {
+      post.publishedDate = new Date().getTime();
+   }
    postsController
       .create(post)
       .then((result) => {
@@ -29,8 +30,8 @@ router.get("/", (req, res) => {
          req.query.isPublished === "true"
             ? true
             : req.query.isPublished === "false"
-            ? false
-            : req.query.isPublished,
+               ? false
+               : req.query.isPublished,
    };
    postsController.find(info).then((data) => {
       res.status(200).json(data);
@@ -41,8 +42,12 @@ router.get("/:id", (req, res) => {
    const id = req.params.id;
    postsController.post(id).then((data) => {
       if (data) res.status(200).json(data);
-      else res.status(404).json("ID not found");
+      else res.status(404).send('ID not found');
    });
+});
+
+router.patch("/:id", (req, res) => {
+   res.status(405).json();
 });
 
 router.put("/:id", (req, res) => {
